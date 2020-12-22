@@ -1,6 +1,6 @@
 ---
 title: "hosting next.js sites on github pages with github actions"
-date: "2020-01-01"
+date: "2020-12-22"
 ---
 
 hey y'all, as you all may know, github has a service called pages, which allows you to host static files for free. this post will will go over how to setup a continuous integration workflow to deploy a blog to pages.
