@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export -o build",
     "start": "next start",
-    "deploy": "touch build/.nojekyll && gh-pages -d build"
+    "deploy": "touch build/.nojekyll && gh-pages -d build -t true"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
