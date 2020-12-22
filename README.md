@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# blog
+
+simple next.js blog hosted on github pages: https://lagooned.github.io/blog
