@@ -27,7 +27,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <img
-              src="/blog/images/profile.jpg"
+              src="/blog/images/me-centered-better.png"
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
@@ -38,7 +38,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <img
-                  src="/blog/images/profile.jpg"
+                  src="/blog/images/me-centered-better.png"
                   className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={name}
                 />
