@@ -56,12 +56,20 @@ this file is called *node.js.yaml* because the build tool we will be using is np
 
 these are the main steps of our workflow. first we checkout our repo from github; then pull in our build tool runtime, **node.js**, as well as our build tool, **npm**; subsequently install the dependencies defined with in our project manifest (aka the package.json and package-lock.json); export our next.js app to a bundle of static resources; and finally deploy our static resources to github pages.
 
-add this yaml to your repository and push:
+the final step requires the setup of a [personal access token]( https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) with the following permissions:
+
+- repo:status
+- repo_deployment
+- public_repo
+- repo:invite
+
+then add the value of this token to your repository as a secret with the id **ACTIONS_DEPLOY_ACCESS_TOKEN** (as referred in the yaml via the *secrets*.* namespace). this token will allow the workflow to push to the gh-pages branch of your repository.
+
+add this yaml to your repository but don't push just yet, there are still some things we have to do to the project:
 
 ```bash
     $ git add .github/workflow/node.js.yaml
     $ git commit -m "added node.js.yaml actions workflow"
-    $ git push origin HEAD
 ```
 
 this post, as with everything i do, will be an agile<sup>tm</sup> work in progress, so please check back for more updates.
