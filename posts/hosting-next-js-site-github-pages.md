@@ -26,7 +26,7 @@ once you have gone through this tutorial you should be left with a git repo cont
     $ git push origin HEAD
 ```
 
-this will push code to the default branch on your repository. when visiting [the repository](https://github.com/lagooned/blog) on you should see your entire root directory and the readme rendered.
+this will push code to the default branch on your repository. when visiting [the repository](https://github.com/lagooned/blog) on github, you should see your entire root directory and the readme rendered.
 
 # creating the workflow
 
@@ -36,7 +36,7 @@ great, now we've pushed the code to our repository, we need to setup a workflow 
     $ touch .github/workflows/node.js.yaml
 ```
 
-this file is called *node.js.yaml* because the build tool we will be using is npm, which hopefully you have some experience with by now after the next.js tutorial. 
+this file is called *node.js.yaml* because the build tool we will be using is npm (node package manager), which hopefully you have some experience with by now after the next.js tutorial. 
 
 [here](https://github.com/lagooned/blog/blob/main/.github/workflows/node.js.yml) is the contents of the workflow. this file defines upon a push to a particular branch, in this case **main**, execute this workflow. in looking closer at the yaml, this workflow is a build process which executes on the latest version of ubuntu (hence ubuntu-latest), and requires the latest version of node.js 12 (hence 12.x). this workflow also is comprised of many jobs which run in order. in looking at the **steps** section of the configuration, we find these steps:
 
@@ -63,7 +63,7 @@ the final step requires the setup of a [personal access token]( https://docs.git
 - public_repo
 - repo:invite
 
-then add the value of this token to your repository as a secret with the id **ACTIONS_DEPLOY_ACCESS_TOKEN** (as referred in the yaml via the *secrets*.* namespace). this token will allow the workflow to push to the gh-pages branch of your repository.
+add this token's value to your repository as a secret with the id **ACTIONS_DEPLOY_ACCESS_TOKEN** (as referred in the yaml via the *secrets.\** namespace). this token will allow the workflow to push to the gh-pages branch of your repository.
 
 add this yaml to your repository but don't push just yet, there are still some things we have to do to the project:
 
