@@ -56,7 +56,7 @@ this file is called *node.js.yaml* because the build tool we will be using is np
 
 these are the main steps of our workflow. first we checkout our repo from github; then pull in our build tool runtime, **node.js**, as well as our build tool, **npm**; subsequently install the dependencies defined with in our project manifest (aka the package.json and package-lock.json); export our next.js app to a bundle of static resources; and finally deploy our static resources to github pages.
 
-the final step requires the setup of a [personal access token]( https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) with the following permissions:
+the final step requires the setup of a [personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) with the following permissions:
 
 - repo:status
 - repo_deployment
@@ -65,13 +65,64 @@ the final step requires the setup of a [personal access token]( https://docs.git
 
 add this token's value to your repository as a secret with the id **ACTIONS_DEPLOY_ACCESS_TOKEN** (as referred in the yaml via the *secrets.\** namespace). this token will allow the workflow to push to the gh-pages branch of your repository.
 
-add this yaml to your repository but don't push just yet, there are still some things we have to do to the project:
+add this yaml to your repository and commit:
 
 ```bash
     $ git add .github/workflow/node.js.yaml
     $ git commit -m "added node.js.yaml actions workflow"
 ```
 
-this post, as with everything i do, will be an agile<sup>tm</sup> work in progress, so please check back for more updates.
+# configure base path
+
+when deploying to github pages, there is a few major caveats, the first being the implicit url path segmented added to the url which matches the repo name. for example, if i created the repository
+[https://github.com/lagooned/blog](https://github.com/lagooned/blog) the cooresponding pages host url will become [https://lagooned.github.io/blog](https://lagooned.github.io/blog). this **/blog** on the end of the domain creates an issue, as the static generated files will miss this very necessary path segment, thus causing 404's when attempting to load static assets.
+
+to fix this, create a file called *next.config.js* under the root directory of your project with something along the lines of the following contents:
+
+```javascript
+module.exports = {
+  basePath: '/blog'
+}
+```
+
+make sure this value matches your repo name, and perspective base path segment. don't forget to commit!
+
+```bash
+    $ git add next.config.js
+    $ git commit -m "added basepath configuration via next.config.js"
+```
+
+# setup npm tasks
+
+npm tasks are very useful for automating common tasks for your repo. the definitions for these tasks reside in the **scripts** section of the package.json. modify the *build* task and add the following task called *deploy* to your package.json so that it looks like so:
+
+```json
+...
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export -o build",
+    "start": "next start",
+    "deploy": "touch build/.nojekyll && gh-pages -d build -t true"
+  },
+...
+```
+
+this modification to the **build** task will include an instrumental step- to generate the static files to deploy to pages, and place the output in a directory called *build*. in addition, the new **deploy** task will create an empty file called .nojekyll in the newly created build directory and deploy using the gh-pages npm package.
+
+there are a few things to unpack here. the .nojekyll file is to circumvent a pretty big quirk of github pages. [jekyll](https://jekyllrb.com) is a ruby-based, markdown blog generation platform, kinda similar to the one we're currently making. it does a similar process of generating static files, however, it uses special files which start with underscores. github pages natively supports interpreting these files, and this support conflicts with next.js' default static file *_next* directory. adding this .nojekyll file will disable this additional processing and allow our static assets to be retrieved without any issues.
+
+finally, commit, push, and visit your actions tab on your repository:
+
+```bash
+    $ git add package.json
+    $ git commit -m "modified build and added deploy tasks"
+    $ git push origin HEAD
+```
+
+# conclusion
+
+visit your repo, click the actions tab, and watch your workflow start and run to completion. this will create a branch on your repository called 'gh-pages' which will contain your newly-generated static assets.
+
+visit your pages url and enjoy your app, lmk via email if you have any trouble. :)
 
 -jared
