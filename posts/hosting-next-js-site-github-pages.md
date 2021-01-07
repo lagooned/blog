@@ -3,7 +3,7 @@ title: "hosting next.js sites on github pages with github actions"
 date: "2020-12-22"
 ---
 
-hey y'all, as you all may know, github has a service called pages, which allows you to host static files for free. this post will go over how to setup a continuous integration workflow to deploy a blog to pages.
+hey y'all! as you may or may not know, github has a service called pages, which allows you to host static files for free. this post will go over how to setup a continuous integration workflow to deploy a blog to pages.
 
 # terms
 - **[github pages](https://pages.github.com)**
@@ -22,8 +22,8 @@ in order to get a starter next.js app you can follow [this guide](https://nextjs
 once you have gone through this tutorial you should be left with a git repo containing your new app. also, if you haven't already, make sure to setup your github account with ssh key access by following the guide [here](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh). this will help smooth out the authentication step when pushing your git repo so you don't have to type your password every time. in order to push my blog i executed the following commands:
 
 ```bash
-    $ git remote add origin git@github.com:lagooned/blog.git
-    $ git push origin HEAD
+$ git remote add origin git@github.com:lagooned/blog.git
+$ git push origin HEAD
 ```
 
 this will push code to the default branch on your repository. when visiting [the repository](https://github.com/lagooned/blog) on github, you should see your entire root directory and the readme rendered.
@@ -33,7 +33,7 @@ this will push code to the default branch on your repository. when visiting [the
 great, now we've pushed the code to our repository, we need to setup a workflow which will deploy it. we do this by creating a workflow yaml file. these are placed under the root directory of the repository in the .github/workflow directory. you can create this file like so:
 
 ```bash
-    $ touch .github/workflows/node.js.yaml
+$ touch .github/workflows/node.js.yaml
 ```
 
 this file is called *node.js.yaml* because the build tool we will be using is npm (node package manager), which hopefully you have some experience with by now after the next.js tutorial. 
@@ -41,17 +41,17 @@ this file is called *node.js.yaml* because the build tool we will be using is np
 [here](https://github.com/lagooned/blog/blob/main/.github/workflows/node.js.yml) is the contents of the workflow. this file defines upon a push to a particular branch, in this case **main**, execute this workflow. in looking closer at the yaml, this workflow is a build process which executes on the latest version of ubuntu (hence ubuntu-latest), and requires the latest version of node.js 12 (hence 12.x). this workflow also is comprised of many jobs which run in order. in looking at the **steps** section of the configuration, we find these steps:
 
 ```yaml
-    steps:
-    - name: checkout
-    ...
-    - name: require node ${{ matrix.node-version }}
-    ...
-    - name: install deps
-    ...
-    - name: build static pages
-    ...
-    - name: deploy to gh-pages
-    ...
+steps:
+- name: checkout
+...
+- name: require node ${{ matrix.node-version }}
+...
+- name: install deps
+...
+- name: build static pages
+...
+- name: deploy to gh-pages
+...
 ```
 
 these are the main steps of our workflow. first we checkout our repo from github; then pull in our build tool runtime, **node.js**, as well as our build tool, **npm**; subsequently install the dependencies defined with in our project manifest (aka the package.json and package-lock.json); export our next.js app to a bundle of static resources; and finally deploy our static resources to github pages.
@@ -68,8 +68,8 @@ add this token's value to your repository as a secret with the id **ACTIONS_DEPL
 add this yaml to your repository and commit:
 
 ```bash
-    $ git add .github/workflow/node.js.yaml
-    $ git commit -m "added node.js.yaml actions workflow"
+$ git add .github/workflow/node.js.yaml
+$ git commit -m "added node.js.yaml actions workflow"
 ```
 
 # configure base path
@@ -88,8 +88,8 @@ module.exports = {
 make sure this value matches your repo name, and perspective base path segment. don't forget to commit!
 
 ```bash
-    $ git add next.config.js
-    $ git commit -m "added basepath configuration via next.config.js"
+$ git add next.config.js
+$ git commit -m "added basepath configuration via next.config.js"
 ```
 
 # setup npm tasks
@@ -98,12 +98,12 @@ npm tasks are very useful for automating common tasks for your repo. the definit
 
 ```json
 ...
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export -o build",
-    "start": "next start",
-    "deploy": "touch build/.nojekyll && gh-pages -d build -t true"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build && next export -o build",
+  "start": "next start",
+  "deploy": "touch build/.nojekyll && gh-pages -d build -t true"
+},
 ...
 ```
 
@@ -111,12 +111,12 @@ this modification to the **build** task will include an instrumental step- to ge
 
 there are a few things to unpack here. the .nojekyll file is to circumvent a pretty big quirk of github pages. [jekyll](https://jekyllrb.com) is a ruby-based, markdown blog generation platform, kinda similar to the one we're currently making. it does a similar process of generating static files, however, it uses special files which start with underscores. github pages natively supports interpreting these files, and this support conflicts with next.js' default static file *_next* directory. adding this .nojekyll file will disable this additional processing and allow our static assets to be retrieved without any issues.
 
-finally, commit, push, and visit your actions tab on your repository:
+finally, commit and push:
 
 ```bash
-    $ git add package.json
-    $ git commit -m "modified build and added deploy tasks"
-    $ git push origin HEAD
+$ git add package.json
+$ git commit -m "modified build and added deploy tasks"
+$ git push origin HEAD
 ```
 
 # conclusion

@@ -26,3 +26,8 @@ img {
   max-width: 100%;
   display: block;
 }
+
+pre {
+  padding: 2em 0 2em 0;
+  overflow-x: scroll;
+}
