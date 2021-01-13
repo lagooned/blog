@@ -49,15 +49,41 @@ now, come on... this isn't a terrible solution, it's actually pretty elegant; i'
 
 in order to fully appreciate the optimal solution, there is a very cool concept at the core of functional programming that is at the core of this solution: **right fold**.
 
-## the right fold
+## the correct fold
 
 a fold is not some crazy dance move, it's a *function*. the whole idea of functional programming is that highly complex operations can be broken down into compositions of simple, named transformations. this concept is similar the purpose of object oriented design patterns; it gives programmers a **vocabulary**, which is the most important part of computer science as it lets you discuss solutions.
 
-a right fold is result of the following expression when built from a list:
+a right fold is result of the following expression when built from a list, when done with the addition operator:
+
+```
+-- a right fold
+foldr 0 [1, 2, 3, 4, 5] => (1+(2+(3+(4+(5+0))))) => 15
+```
+
+when the operator you use is communative, this has the effect of replacing the commas in a list definition with the operator. this is a more specific version of a **reduce** which is found in most langauges. here is an example of using a right fold with a list of strings and the concatination operation:
+
+```
+foldr "" ["1", "2", "3", "4", "5"] => "12345"
+```
+
+as you can see using this can be very useful for concicely reducing a list to a single value
+
+here is it's definition in haskell:
 
 ```haskell
 foldr f z [] = z
 foldr f z (x:xs) = f x (foldr f z xs)
-foldr (+) [1, 2, 3, 4]
--- => (1 + (2 + (3 + 4))) => 10
 ```
+
+here the purpose of the first definition is to define the base case, sometime known as the seed value. the second definition is what takes care of the application of the function **f** and continues the operation on the rest of the list.
+
+## from fold to scan
+
+the reason i've introduced the fold is because it is a good segue into it's sister function, the **scan**. a scan is similar to a fold, but instead of reducing the list to a single value, it reduces it into a list of the successive values created by doing the folding operation:
+
+```
+-- a right scan
+scanr 0 [1, 2, 3] => [0+1, (0+(1+2), (0+(1+(2+3)))] => [1, 3, 6]
+```
+
+this function may look quite innoquous, but it is in fact the key to optimizing the array manipulation problem.
