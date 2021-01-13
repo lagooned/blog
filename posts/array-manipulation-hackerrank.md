@@ -118,7 +118,7 @@ scanl (+) 0 [0,0,1,0,0,0,0,-1,0,0] => [0,0,1,1,1,1,1,1,0,0]
 scanr (+) 0 [0,0,-1,0,0,0,0,1,0,0] => [0,0,1,1,1,1,1,1,0,0]
 ```
 
-this is huge, as it shows that we can use this scan operation to remove the inner for loop from the naive solution. this is the final implementation in java:
+this is huge<sup>tm</sup>, as it shows that we can use this scan operation to remove the inner for loop from the naive solution. this is the final implementation in java:
 
 ```java
 static long arrayManipulation(int n, int[][] queries) {
