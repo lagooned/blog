@@ -47,30 +47,34 @@ now, come on... this isn't a terrible solution, it's actually pretty elegant; i'
 
 # the optimal solution
 
-in order to fully appreciate the optimal solution, there is a very cool concept at the core of functional programming that is at the core of this solution: **right fold**.
+in order to fully appreciate the optimal solution, there is a very cool concept at the core of functional programming that is at the core of this solution: **fold**.
 
-## the correct fold
+## the fold
 
 a fold is not some crazy dance move, it's a *function*. the whole idea of functional programming is that highly complex operations can be broken down into compositions of simple, named transformations. this concept is similar the purpose of object oriented design patterns; it gives programmers a **vocabulary**, which is the most important part of computer science as it lets you discuss solutions.
 
-a right fold is result of the following expression when built from a list, when done with the addition operator:
+a fold is result of the following expression when built from a list, when done with the addition operator:
 
 ```
--- a right fold
-foldr 0 [1,2,3,4,5] => (1+(2+(3+(4+(5+0))))) => 15
+foldl (+) 0 [1,2,3,4,5] => (((((0+1)+2)+3)+4)+5) => 15
+foldr (+) 0 [1,2,3,4,5] => (1+(2+(3+(4+(5+0))))) => 15
 ```
 
-when the operator you use is communative, this has the effect of replacing the commas in a list definition with the operator. this is a more specific version of a **reduce** which is found in most langauges. here is an example of using a right fold with a list of strings and the concatination operation:
+when the operator you use is communative, this has the effect of replacing the commas in a list definition with the operator. this is a more specific version of a **reduce** which is found in most langauges. here is an example of using both a left and right fold with a list of strings and the concatination operation:
 
 ```
-foldr "" ["1","2","3","4","5"] => "12345"
+foldl (++) "" ["1","2","3","4","5"] => "54321"
+foldr (++) "" ["1","2","3","4","5"] => "12345"
 ```
 
-as you can see using this can be very useful for concicely reducing a list to a single value
+as you can see using this can be very useful for concicely reducing a list to a single value in a particular order
 
 here is it's definition in haskell:
 
 ```haskell
+foldl f z [] = z
+foldl f z (x:xs) = foldl f (f z x) xs
+
 foldr f z [] = z
 foldr f z (x:xs) = f x (foldr f z xs)
 ```
@@ -82,8 +86,37 @@ here the purpose of the first definition is to define the base case, sometime kn
 the reason i've introduced the fold is because it is a good segue into it's sister function, the **scan**. a scan is similar to a fold, but instead of reducing the list to a single value, it reduces it into a list of the successive values created by doing the folding operation:
 
 ```
--- a right scan
-scanr 0 [1,2,3] => [0+1,(0+(1+2),(0+(1+(2+3)))] => [1,3,6]
+scanl (+) 0 [1,2,3] => [0+1,((0+1)+2),(((0+1)+2)+3)] => [1,3,6]
+scanl (+) 0 [1,2,3] => [0+1,(0+(1+2)),(0+(1+(2+3)))] => [1,3,6]
 ```
 
 this function may look quite innoquous, but it is in fact the key to optimizing the array manipulation problem.
+
+here's its haskell definition for completeness:
+
+```haskell
+scanl :: (b -> a -> b) -> b -> [a] -> [b]
+scanl = scanlGo
+  where
+    scanlGo :: (b -> a -> b) -> b -> [a] -> [b]
+    scanlGo f q ls = q : (case ls of
+                          [] -> []
+                          x:xs -> scanlGo f (f q x) xs)
+
+scanr :: (a -> b -> b) -> b -> [a] -> [b]
+scanr _ q0 [] = [q0]
+scanr f q0 (x:xs) = f x q : qs
+                    where qs@(q:_) = scanr f q0 xs
+```
+
+you don't really have to understand these, it's just helpful to explore how they are implemented. i found the implementations [here](https://hackage.haskell.org/package/base-4.14.1.0/docs/src/GHC.List.html).
+
+# the array manipulation
+
+the complexity of the array manipulation step of the original problem can be reduced by utilizing the scan via the following observation:
+
+```
+scanl (+) 0 [0,0,1,0,0,0,0,-1,0,0] => [0,0,1,1,1,1,1,1,0,0]
+scanr (+) 0 [0,0,-1,0,0,0,0,1,0,0] => [0,0,1,1,1,1,1,1,0,0]
+```
+
