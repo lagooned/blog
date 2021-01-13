@@ -47,4 +47,17 @@ now, come on... this isn't a terrible solution, it's actually pretty elegant; i'
 
 # the optimal solution
 
-...
+in order to fully appreciate the optimal solution, there is a very cool concept at the core of functional programming that is at the core of this solution: **right fold**.
+
+## the right fold
+
+a fold is not some crazy dance move, it's a *function*. the whole idea of functional programming is that highly complex operations can be broken down into compositions of simple, named transformations. this concept is similar the purpose of object oriented design patterns; it gives programmers a **vocabulary**, which is the most important part of computer science as it lets you discuss solutions.
+
+a right fold is result of the following expression when built from a list:
+
+```haskell
+foldr f z [] = z
+foldr f z (x:xs) = f x (foldr f z xs)
+foldr (+) [1, 2, 3, 4]
+-- => (1 + (2 + (3 + 4))) => 10
+```
