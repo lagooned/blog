@@ -126,7 +126,9 @@ this is huge, as it shows that we can use this scan operation to remove the inne
 static long arrayManipulation(int n, int[][] queries) {
     long[] ns = new long[n+2];
     for (int i = 0; i < queries.length; i++) {
-        int a = queries[i][0]; int b = queries[i][1]; int k = queries[i][2];
+        int a = queries[i][0];
+        int b = queries[i][1];
+        int k = queries[i][2];
         ns[a-1] = ns[a-1]+k;
         ns[b] = ns[b]-k;
     }
