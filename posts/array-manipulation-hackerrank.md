@@ -43,7 +43,7 @@ static long arrayManipulation(int n, int[][] q) {
 }
 ```
 
-now, come on... this isn't a terrible solution, it's actually pretty elegant; but unfortunately it falls over when the size of the array and queries gets huge, as the nested for loop makes the worst-case complexity **O( n * m )** where **n** is the number of queries, and **m** is the maximum value of **b<sub>n</sub> - a<sub>n</sub>**
+now, come on... this isn't a terrible solution, it's actually pretty elegant; i'm even calculating the maximum value whilst performing the array manipulation. this implementation has a big problem, however. it falls over when the size of the array and queries gets huge, as the nested for loop makes the worst-case complexity **O( n * m )** where **n** is the number of queries, and **m** is the maximum value of **b<sub>n</sub> - a<sub>n</sub>**.
 
 # the optimal solution
 
