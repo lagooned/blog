@@ -79,8 +79,6 @@ foldr f z [] = z
 foldr f z (x:xs) = f x (foldr f z xs)
 ```
 
-here the purpose of the first definition is to define the base case, sometime known as the seed value. the second definition is what takes care of the application of the function **f** and continues the operation on the rest of the list.
-
 ## from fold to scan
 
 the reason i've introduced the fold is because it is a good segue into it's sister function, the **scan**. a scan is similar to a fold, but instead of reducing the list to a single value, it reduces it into a list of the successive values created by doing the folding operation:
