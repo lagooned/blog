@@ -57,13 +57,13 @@ a right fold is result of the following expression when built from a list, when 
 
 ```
 -- a right fold
-foldr 0 [1, 2, 3, 4, 5] => (1+(2+(3+(4+(5+0))))) => 15
+foldr 0 [1,2,3,4,5] => (1+(2+(3+(4+(5+0))))) => 15
 ```
 
 when the operator you use is communative, this has the effect of replacing the commas in a list definition with the operator. this is a more specific version of a **reduce** which is found in most langauges. here is an example of using a right fold with a list of strings and the concatination operation:
 
 ```
-foldr "" ["1", "2", "3", "4", "5"] => "12345"
+foldr "" ["1","2","3","4","5"] => "12345"
 ```
 
 as you can see using this can be very useful for concicely reducing a list to a single value
@@ -83,7 +83,7 @@ the reason i've introduced the fold is because it is a good segue into it's sist
 
 ```
 -- a right scan
-scanr 0 [1, 2, 3] => [0+1, (0+(1+2), (0+(1+(2+3)))] => [1, 3, 6]
+scanr 0 [1,2,3] => [0+1,(0+(1+2),(0+(1+(2+3)))] => [1,3,6]
 ```
 
 this function may look quite innoquous, but it is in fact the key to optimizing the array manipulation problem.
