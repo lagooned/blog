@@ -69,7 +69,7 @@ foldr (++) "" ["1","2","3","4","5"] => "12345"
 
 as you can see using this can be very useful for concicely reducing a list to a single value in a particular order
 
-here is it's definition in haskell:
+here are the definitions in haskell:
 
 ```haskell
 foldl f z [] = z
