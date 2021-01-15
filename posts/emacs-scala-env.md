@@ -7,7 +7,7 @@ date: "2021-01-15"
 
 while others may use microsoft's rounded-edged **vscode**, a proprietary attempt to capture the extensible editor market; or **vim**, a good editor with a bad extension language; emacs' unparalled database of code, idoms, and community will shine on as part of the computing universe forever.
 
-my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i've been using emacs for so long that i've finally gained the confidence to point other emacs users in the right direction. so listen up and copy this down; you'll have a fully functional, free and open source, scala ide in no time.
+my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i've been using emacs for so long that i've finally gained the confidence to point other emacs users in the right direction. so listen up and copy this down; you'll have a fully -functioning, free-and-open-source scala ide in no time.
 
 # terms
 
