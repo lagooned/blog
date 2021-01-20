@@ -3,7 +3,7 @@ title: "interview prep: array manipulation"
 date: "2021-01-13"
 ---
 
-as part of my attempt to stay up-to-date on programming, as well as increase my confidence for interviews, i've been doing the hackerrank [interview prep kit](https://www.hackerrank.com/interview/interview-preparation-kit) series. one problem in particular caught my eye, and after solving it sub-optimally, i researched the best solution of the problem and learned some cool things along the way and connected it to my functional programming knowledge.
+hey y'all. as part of my attempt to stay up-to-date on programming, as well as increase my confidence for interviews, i've been doing the hackerrank [interview prep kit](https://www.hackerrank.com/interview/interview-preparation-kit) series. one problem in particular caught my eye, and after solving it sub-optimally, i sought the best solution and learned some cool things along the way and connected it to my functional programming knowledge.
 
 # the problem
 
@@ -81,7 +81,7 @@ foldr f z (x:xs) = f x (foldr f z xs)
 
 ## from fold to scan
 
-the reason i've introduced the fold is because it is a good segue into it's sister function, the **scan**. a scan is similar to a fold, but instead of reducing the list to a single value, it reduces it into a list of the successive values created by doing the folding operation:
+the reason i've introduced the fold is because it is a good segue into its sister function, the **scan**. a scan is similar to a fold, but instead of reducing the list to a single value, it reduces it into a list of the successive values created by doing the folding operation:
 
 ```
 scanl (+) 0 [1,2,3] => [0+1,((0+1)+2),(((0+1)+2)+3)] => [1,3,6]
