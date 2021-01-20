@@ -11,4 +11,11 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
 
 # terms
 
-...
+- **[lsp](https://github.com/microsoft/language-server-protocol)**
+  - short for *language server protocol*. this is a standard for implementing a language server for a given language. it defines how to create a REST server which understands its implenting language (whether it be java, c++, scala, or what have you) and accepts queries which return information which can aid in the development process.
+
+- **[lsp-mode](https://github.com/emacs-lsp/lsp-mode)**
+  - a client library for emacs which interacts with servers which implement the language server protocol.
+
+- **[scala](https://www.scala-lang.org)**
+  - scala is a multi-paradigm language which blends object-oriented and functional programming. it successfully predicted the growth-trend of preference toward stateless archetectures and offers features for a community retreating toward a model of computing which better handles the concurrency needs of a modern world.
