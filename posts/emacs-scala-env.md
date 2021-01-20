@@ -18,4 +18,12 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
   - a client library for emacs which interacts with servers which implement the language server protocol.
 
 - **[scala](https://www.scala-lang.org)**
-  - scala is a multi-paradigm language which blends object-oriented and functional programming. it successfully predicted the growth-trend of preference toward stateless architectures and offers features for a community retreating toward a model of computing which better handles the concurrency needs of a modern world.
+  - a multi-paradigm language which blends object-oriented and functional programming. it successfully predicted the growth-trend of preference toward stateless code and offers features for a community retreating toward a model of computing which better handles the concurrency needs of a modern world.
+
+- **[mode](https://www.gnu.org/software/emacs/manual/html_node/emacs/Modes.html)**
+  - an operating mode for emacs which is enabled upon opening a buffer. a mode usually offers a set of functionality that is useful for the type of buffer that was opened. for example, when opening a *\*.java* file, **java-mode** is started.
+
+- **[hook](https://www.gnu.org/software/emacs/manual/html_node/elisp/Setting-Hooks.html)**
+  - an unordered list of elisp functions which run when a particular *mode* is enabled. for example, when *java-mode*, **java-mode-hook** is executed.
+
+# ...
