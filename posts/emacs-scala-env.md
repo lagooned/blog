@@ -14,9 +14,6 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
 - **[lsp](https://github.com/microsoft/language-server-protocol)**
   - short for *language server protocol*. this is a standard for implementing a language server for a given language. it defines how to create a REST server which understands its implementing language (whether it be java, c++, scala, or what have you) and accepts queries which return information which can aid in the development process.
 
-- **[lsp-mode](https://github.com/emacs-lsp/lsp-mode)**
-  - a client library for emacs which interacts with servers which implement the language server protocol.
-
 - **[scala](https://www.scala-lang.org)**
   - a multi-paradigm language which blends object-oriented and functional programming. it successfully predicted the growth-trend of preference toward stateless code and offers features for a community retreating toward a model of computing which better handles the concurrency needs of a modern world.
 
@@ -26,4 +23,21 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
 - **[hook](https://www.gnu.org/software/emacs/manual/html_node/elisp/Setting-Hooks.html)**
   - an unordered list of elisp functions which run when a particular *mode* is enabled. for example, when *java-mode*, **java-mode-hook** is executed.
 
-# ...
+- **[lsp-mode](https://github.com/emacs-lsp/lsp-mode)**
+  - a client library for emacs which interacts with servers which implement the language server protocol.
+
+- **[use-package](https://github.com/jwiegley/use-package)**
+  - a set of elisp functions and macros which makes it easy to lazy-load elisp packages with particular configurations. while it is completely optional, loading elisp packages all at once can be quite time complex and cause very slow startup time. use of this is very much advised as it will future proof your configurations.
+
+# scope
+
+in order to keep this short, i will only be going over the setup of *use-package*, *lsp-mode*, and the operating system configurations required to make a elegant development environment. if you would like to know more about emacs, please check out the following:
+
+- *[my configuration, aka je/emacs](http://github.com/lagooned/emacs)*
+  - the configuration that i currently use whenever i can. please feel free to copy stuff out of my config or raise a pr. id be happy to have a look at it.
+
+- *[sanemacs](https://sanemacs.com)*
+  - provides a good set of sane defaults
+
+- *[awesome emacs](https://github.com/emacs-tw/awesome-emacs)*
+  - a great, frequently updated place to look for and learn about more packages to add to your emacs configuration.
