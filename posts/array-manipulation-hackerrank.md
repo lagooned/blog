@@ -1,5 +1,5 @@
 ---
-title: "array manipulation"
+title: "interview prep: array manipulation"
 date: "2021-01-13"
 ---
 
