@@ -16,7 +16,7 @@ export default function Layout({ children, home }) {
         />
         <meta
           property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(siteTitle)}.png?theme=dark&fontSize=100px`}
+          content={"/blog/images/jared-engler-blog.png"}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
