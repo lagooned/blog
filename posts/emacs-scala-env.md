@@ -41,3 +41,23 @@ in order to keep this short, i will only be going over the setup of *use-package
 
 - **[awesome emacs](https://github.com/emacs-tw/awesome-emacs)**
   - a great, frequently updated place to look for and learn about more packages to add to your emacs configuration.
+
+# using use-package
+
+*use-package* is a huge convienience for adding emacs packages. the most common syntax for a use-package invocation is as follows:
+
+```elisp
+(use-package package-name
+ :ensure (automatically-download-package-if-not-found-p)
+ :commands
+ (command-to-trigger-load-1 command-to-trigger-load-2)
+ :init
+ (initial-config-before-loading-package)
+ :config
+ (subsequent-config-after-loading-package))
+```
+
+here **package-name** is the package we are controlling with this definition; **:ensure** is a predicate (either being **t** or **nil**) which controls whether or not to download and install the package if it is not locally available; **:commands** takes a list of commands, which once invoked will trigger the loading of *package-name*; **:init** is a block of commands that will be evaluated sequentially immediately, before package load; and **:config** is a block of commands much like *:init*, however, these commands are evaluated when the package loads.
+
+# ...
+
