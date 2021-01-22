@@ -44,7 +44,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 
 # using use-package
 
-*use-package* is a huge convienience for adding emacs packages. the most common syntax for a use-package invocation is as follows:
+*use-package* is a huge convenience for adding emacs packages. the most common syntax for a use-package invocation is as follows:
 
 ```elisp
 (use-package package-name
