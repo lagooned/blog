@@ -57,7 +57,7 @@ in order to keep this short, i will only be going over the setup of *use-package
  (subsequent-config-after-loading-package))
 ```
 
-here **package-name** is the package we are controlling with this definition; **:ensure** is a predicate (either being **t** or **nil**) which controls whether or not to download and install the package if it is not locally available; **:commands** takes a list of commands, which once invoked will trigger the loading of *package-name*; **:init** is a block of commands that will be evaluated sequentially immediately, before package load; and **:config** is a block of commands much like *:init*, however, these commands are evaluated when the package loads.
+here **package-name** is the package we are controlling with this definition; **:ensure** is a predicate (either being **t** or **nil**) which controls whether or not to download and install the package if it is not locally available; **:commands** takes a list of commands, which once invoked will trigger the loading of *package-name*; **:init** is a block of commands that will be evaluated sequentially immediately, before package load; and **:config** is a block of commands much like *:init*, however, these commands are evaluated when the package loads. there are some [other useful macros](https://github.com/jwiegley/use-package/blob/master/README.md), but these are the ones we will use.
 
 # setting up lsp
 
