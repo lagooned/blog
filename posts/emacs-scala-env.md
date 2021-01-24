@@ -73,4 +73,60 @@ here **package-name** is the package we are controlling with this definition; **
 
 # setting up lsp
 
-...
+now that we know a little about how to *use-package* we can start by installing it programatically by doing the following in out ~/.emacs.d/init.el:
+
+```elisp
+(require 'package)
+
+(setq
+ package-archives
+ '(("gnu" . "https://elpa.gnu.org/packages/")
+   ("marmalade" . "https://marmalade-repo.org/packages/")
+   ("melpa-stable" . "https://stable.melpa.org/packages/")
+   ("melpa" . "https://melpa.org/packages/")))
+
+(when (version< emacs-version "27")
+  (package-initialize))
+
+(if (not (package-installed-p 'use-package))
+      (progn (package-refresh-contents)
+             (package-install 'use-package)))
+```
+
+this will initialize the elisp module which controls package installation, and then install the latest version of use-package. to make it execute, run `(load-file "~/.emacs.d/init.el")` in the **\*scratch\*** buffer. this will start the installation process.
+
+then after that has been done, add the following use-package definitions:
+
+```elisp
+(use-package company
+  :ensure t
+  :diminish company-mode
+  :commands company-mode
+  :hook (prog-mode . company-mode))
+
+(use-package lsp-mode
+  :ensure t
+  :commands lsp)
+
+(use-package company-lsp
+  :ensure t
+  :after lsp company)
+
+(use-package scala-mode
+  :ensure t
+  :interpreter ("scala" . scala-mode))
+
+(use-package sbt-mode
+  :ensure t
+  :when (executable-find "sbt")
+  :commands sbt-start sbt-command
+  :config (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+(use-package lsp-metals
+  :ensure t
+  :when (and (executable-find "metals-emacs")
+             (executable-find "bloop"))
+  :hook (scala-mode . lsp))
+```
+
+if you have installed the binaries enumerated earlier, reload your init file and open a scala file. lsp will offer to import the project and you should have a working scala ide. get your test driven development on and learn some emacs and scala!
