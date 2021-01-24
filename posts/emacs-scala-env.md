@@ -5,7 +5,7 @@ date: "2021-01-23"
 
 [**emacs**](https://www.gnu.org/software/emacs) is my favorite thing in life. so much so, that it is typically the first thing i install on any machine that i'm going to use with any frequency. i will most likely produce many posts about emacs over the course of this blog, and i will love every one of them. this love stems from the extensibility of its human interface; within reason, there is nothing emacs cannot do. it integrates well with gnu file descriptors and streams; has an expressively-unmatched extension language, dubbed **elisp**; and has a community of visionaries that craft astounding software for this... text editor.
 
-while others may use microsoft's rounded-edged **vscode**, a proprietary attempt to capture the extensible editor market; or **vim**, a good editor with a bad extension language; emacs' unparalled database of code, idioms, and community will shine on as part of the computing universe forever.
+while others may use microsoft's rounded-edged **vscode**, a proprietary attempt to capture the extensible editor market; or **vim**, a good editor with a bad extension language; emacs' unparalleled database of code, idioms, and community will shine on as part of the computing universe forever.
 
 my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i've been using emacs for so long that i've finally gained the confidence to point other emacs users in the right direction. so listen up and copy this down; you'll have a fully functioning, free-and-open-source scala ide in no time.
 
@@ -27,7 +27,7 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
   - a client library for emacs which interacts with servers which implement the language server protocol.
 
 - **[use-package](https://github.com/jwiegley/use-package)**
-  - a set of elisp functions and macros which makes it easy to lazy-load elisp packages with particular configurations. while it is completely optional, loading elisp packages all at once can be quite time complex and cause very slow startup time. use of this is very much advised as it will future proof your configurations.
+  - a set of elisp functions and macros which makes it easy to lazy-load elisp packages with particular configurations. while it is completely optional, loading elisp packages all at once can be quite time complex and cause very slow start-up time. use of this is very much advised as it will future proof your configurations.
 
 # scope
 
@@ -47,7 +47,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 - [sbt](https://www.scala-sbt.org)
   - the quintessential **s**cala **b**uilt **t**ool. install this and make sure it's on your `PATH` before you start tying to use this config
 - [metals](https://github.com/scalameta/metals)
-  - the imlementation of lsp for scala; the centerpiece of this config and required for functionality, install it using this (https://scalameta.org/metals/docs/editors/emacs.html) guide
+  - the implementation of lsp for scala; the centerpiece of this config and required for functionality, install it using this (https://scalameta.org/metals/docs/editors/emacs.html) guide
 - [coursier](https://get-coursier.io)
   - in order to build metals you will need the coursier cli, follow the guide [here](https://get-coursier.io/docs/cli-installation)
 - [bloop](https://scalacenter.github.io/bloop/)
@@ -60,7 +60,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 ```elisp
 (use-package package-name
  :ensure (automatically-download-package-if-not-found-p)
- :when (prerequsite-for-package-p)
+ :when (prerequisite-for-package-p)
  :commands
  (command-to-trigger-load-1 command-to-trigger-load-2)
  :init
