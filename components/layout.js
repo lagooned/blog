@@ -12,7 +12,7 @@ export default function Layout({ children, home }) {
       <Head>
         <meta
           name="description"
-          content="jared.engler.blog"
+          content="a blog by a guy who likes emacs"
         />
         <meta
           property="og:image"
