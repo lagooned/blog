@@ -42,6 +42,15 @@ in order to keep this short, i will only be going over the setup of *use-package
 - **[awesome emacs](https://github.com/emacs-tw/awesome-emacs)**
   - a great, frequently updated place to look for and learn about more packages to add to your emacs configuration.
 
+# install binaries
+
+- [sbt](https://www.scala-sbt.org)
+  - the quintessential **s**cala **b**uilt **t**ool. install this and make sure it's on your `PATH` before you start tying to use this config
+- [metals](https://github.com/scalameta/metals)
+  - the imlementation of lsp for scala; the centerpiece of this config and required for functionality
+- [bloop](https://scalacenter.github.io/bloop/)
+  - a compile server for scala that works with sbt, is automatically used by metals if your project has a .bloop directory, installed mainly because metals throws errors upon startup if you don't have it installed, not sure how required it is... follow the instructions [here](https://scalameta.org/metals/docs/build-tools/bloop.html) here to install it, just to be safe
+
 # using use-package
 
 *use-package* is a huge convenience for adding emacs packages. the most common syntax for a use-package invocation is as follows:
