@@ -1,6 +1,6 @@
 ---
 title: "scala + emacs lsp"
-date: "2021-01-15"
+date: "2021-01-23"
 ---
 
 [**emacs**](https://www.gnu.org/software/emacs) is my favorite thing in life. so much so, that it is typically the first thing i install on any machine that i'm going to use with any frequency. i will most likely produce many posts about emacs over the course of this blog, and i will love every one of them. this love stems from the extensibility of its human interface; within reason, there is nothing emacs cannot do. it integrates well with gnu file descriptors and streams; has an expressively-unmatched extension language, dubbed **elisp**; and has a community of visionaries that craft astounding software for this... text editor.
