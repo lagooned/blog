@@ -47,9 +47,11 @@ in order to keep this short, i will only be going over the setup of *use-package
 - [sbt](https://www.scala-sbt.org)
   - the quintessential **s**cala **b**uilt **t**ool. install this and make sure it's on your `PATH` before you start tying to use this config
 - [metals](https://github.com/scalameta/metals)
-  - the imlementation of lsp for scala; the centerpiece of this config and required for functionality
+  - the imlementation of lsp for scala; the centerpiece of this config and required for functionality, install it using this (https://scalameta.org/metals/docs/editors/emacs.html) guide
+- [coursier](https://get-coursier.io)
+  - in order to build metals you will need the coursier cli, follow the guide [here](https://get-coursier.io/docs/cli-installation)
 - [bloop](https://scalacenter.github.io/bloop/)
-  - a compile server for scala that works with sbt, is automatically used by metals if your project has a .bloop directory, installed mainly because metals throws errors upon startup if you don't have it installed, not sure how required it is... follow the instructions [here](https://scalameta.org/metals/docs/build-tools/bloop.html) here to install it, just to be safe
+  - a compile server for scala that enables automatic importing of scala project changes, install it using [these instructions](https://scalameta.org/metals/docs/build-tools/bloop.html)
 
 # using use-package
 
