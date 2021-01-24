@@ -47,7 +47,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 - [sbt](https://www.scala-sbt.org)
   - the quintessential **s**cala **b**uilt **t**ool. install this and make sure it's on your `PATH` before you start tying to use this config
 - [metals](https://github.com/scalameta/metals)
-  - the implementation of lsp for scala; the centerpiece of this config and required for functionality, install it using this (https://scalameta.org/metals/docs/editors/emacs.html) guide
+  - the implementation of lsp for scala; the centerpiece of this config and required for functionality, install it using [this](https://scalameta.org/metals/docs/editors/emacs.html) guide
 - [coursier](https://get-coursier.io)
   - in order to build metals you will need the coursier cli, follow the guide [here](https://get-coursier.io/docs/cli-installation)
 - [bloop](https://scalacenter.github.io/bloop/)
