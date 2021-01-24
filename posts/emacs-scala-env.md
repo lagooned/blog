@@ -1,5 +1,5 @@
 ---
-title: "scala + emacs lsp"
+title: "scala + emacs lsp = heckin cool"
 date: "2021-01-23"
 ---
 
