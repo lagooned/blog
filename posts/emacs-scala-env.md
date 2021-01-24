@@ -33,8 +33,8 @@ my emacs config is... [huge](https://github.com/lagooned/emacs)<sup>tm</sup>. i'
 
 in order to keep this short, i will only be going over the setup of *use-package*, *lsp-mode*, and the operating system configurations required to make a elegant development environment. if you would like to know more about emacs, please check out the following:
 
-- **[my configuration, aka je/emacs](http://github.com/lagooned/emacs)**
-  - the configuration that i currently use. it is heavily inspired by *[spacemacs](https://www.spacemacs.org)* and *[doomemacs](https://github.com/hlissner/doom-emacs)*. please feel free to copy stuff out of my config or raise a pr, id be happy to have a look at it.
+- **[je/emacs](http://github.com/lagooned/emacs)**
+  - the configuration that i currently use. it is heavily inspired by *[spacemacs](https://www.spacemacs.org)* and *[doom-emacs](https://github.com/hlissner/doom-emacs)*. please feel free to copy stuff out of my config or raise a pr, id be happy to have a look at it.
 
 - **[sanemacs](https://sanemacs.com)**
   - provides a good set of sane defaults
