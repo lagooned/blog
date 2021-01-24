@@ -1,5 +1,5 @@
 ---
-title: "hosting next.js sites on github pages with github actions"
+title: "next.js: workflow with github pages and actions"
 date: "2020-12-22"
 ---
 
