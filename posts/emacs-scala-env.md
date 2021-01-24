@@ -58,10 +58,13 @@ in order to keep this short, i will only be going over the setup of *use-package
 ```elisp
 (use-package package-name
  :ensure (automatically-download-package-if-not-found-p)
+ :when (prerequsite-for-package-p)
  :commands
  (command-to-trigger-load-1 command-to-trigger-load-2)
  :init
  (initial-config-before-loading-package)
+ :after
+ (package-to-wait-for-1 package-to-wait-for-2)
  :config
  (subsequent-config-after-loading-package))
 ```
