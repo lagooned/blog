@@ -138,3 +138,41 @@ static long arrayManipulation(int n, int[][] queries) {
     return max;
 }
 ```
+
+also, to fit with our functional programming knowledge, here is an implementation in scala:
+
+```scala
+object ArrayManipulation extends App {
+
+  val n = 10
+
+  val queries = List(
+    (1,10,1),
+    (2,9,1),
+    (3,8,1),
+    (4,7,1),
+    (5,6,1)
+  )
+
+  println(
+    queries
+      .map(query => (-1 + query._1, -1 + query._2, query._3))
+      .map(adjusted => List.tabulate(n) {i =>
+        i match {
+          case adjusted._1 => adjusted._3
+          case adjusted._2 => -(adjusted._3)
+          case _ => 0
+        }
+      })
+      .fold(List.tabulate(n)(i => 0)) { (e, acc) =>
+        e.zip(acc).map(zipped => zipped._1 + zipped._2)
+      }
+      .scan(0)(_ + _)
+      .max)
+
+}
+```
+
+give this one a try in your favorite language :)
+
+-jared
