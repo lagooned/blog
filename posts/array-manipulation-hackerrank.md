@@ -139,7 +139,7 @@ static long arrayManipulation(int n, int[][] queries) {
 }
 ```
 
-also, to fit with our functional programming knowledge, here is an implementation in scala:
+also, to fit with our functional programming knowledge, here is my implementation in scala:
 
 ```scala
 object ArrayManipulation extends App {
