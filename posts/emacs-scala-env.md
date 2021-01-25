@@ -132,3 +132,5 @@ then after that has been done, add the following use-package definitions:
 ```
 
 if you have installed the binaries enumerated earlier, reload your init file and open a scala file. lsp will offer to import the project and you should have a working scala ide. get your test driven development on and learn some emacs and scala!
+
+-jared
