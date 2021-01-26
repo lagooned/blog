@@ -1,5 +1,5 @@
 ---
-title: "interview prep: array manipulation"
+title: "hackerrank: array manipulation"
 date: "2021-01-13"
 ---
 
