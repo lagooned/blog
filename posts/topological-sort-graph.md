@@ -1,5 +1,5 @@
 ---
-title: "interview prep: topological sort"
+title: "topological sort of a directed acyclic graph"
 date: "2021-01-25"
 ---
 
