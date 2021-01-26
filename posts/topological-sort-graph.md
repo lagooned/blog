@@ -33,7 +33,7 @@ so in the following graph:
 <g id="edge4" class="edge"><path fill="none" stroke="#FFFFFF" d="M101.0187,-143.8314C101.8743,-136.131 102.8917,-126.9743 103.8426,-118.4166"/><polygon fill="#FFFFFF" stroke="#FFFFFF" points="107.3283,-118.7386 104.9541,-108.4133 100.3711,-117.9656 107.3283,-118.7386"/></g>
 <g id="edge5" class="edge"><path fill="none" stroke="#FFFFFF" d="M85.113,-146.3771C76.4747,-136.659 65.2107,-123.987 55.5503,-113.1191"/><polygon fill="#FFFFFF" stroke="#FFFFFF" points="58.1196,-110.7413 48.8599,-105.5924 52.8877,-115.3918 58.1196,-110.7413"/></g>
 
-there exist multiple such orderings which satisfy a topological sort, one such being:
+there exist multiple orderings which satisfy a topological sort, one such being:
 
 `[3, 5, 7, 8, 11, 2, 9, 10]`
 
