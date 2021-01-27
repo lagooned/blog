@@ -84,6 +84,7 @@ public class TopologicalSortShould {
         assertThat(
           actual.indexOf(entry.getKey()),
           is(lessThan(actual.indexOf(v))));
+
   }
 
 }
