@@ -72,7 +72,7 @@ public class TopologicalSortShould {
         8, List.of(9),
         9, List.of()
         10, List.of()
-        11, List.of(9, 10);
+        11, List.of(9, 10));
 
     var actual =
       topologicalSort.topologicalSort(graph);
