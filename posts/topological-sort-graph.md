@@ -51,3 +51,27 @@ which is the ordering which greedily picks the smallest vertex required to satis
 ```
 
 you can easily verify that in comparing to the provided ordering, each left value occurs in the ordering at a lower index than each of the right values.
+
+using this requirement, we can implement a test case to program against:
+
+```java
+public class TopologicalSortShould {
+  TopologicalSort topologicalSort = new TopologicalSort();
+  @Test void createsCorrectTopologicalSort() {
+    Map<Integer, List<Integer>> graph = Map.of(
+      2, List.of(),
+      3, List.of(8, 10),
+      5, List.of(11),
+      7, List.of(8, 11),
+      8, List.of(9),
+      9, List.of(),
+      10, List.of(),
+      11, List.of(9, 10);
+    List<Integer> actual = topologicalSort.topologicalSort(graph);
+    for (Entry<Integer, List<Integer>> entry : graph.entrySet()) {
+      for (Integer v : entry.getValue())
+        assertThat(actual.indexOf(entry.getKey()), is(lessThan(actual.indexOf(v))));
+    }
+  }
+}
+```
