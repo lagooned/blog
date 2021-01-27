@@ -61,7 +61,7 @@ public class TopologicalSortShould {
     new TopologicalSort();
 
   @Test
-  void createsCorrectTopologicalSort() {
+  void createCorrectTopologicalSort() {
 
     Map<Integer, List<Integer>> graph =
       Map.of(
