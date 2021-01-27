@@ -94,7 +94,7 @@ the best way to think about this is to interpret the graph as a group of tasks a
 
 *in what order can we execute all tasks such that no dependency conditions are violated?*
 
-the not-so-obvious answer is the use of *depth first search.* dfs' core concept when employed in a dag is that it greedily traverses the graph to first find the most-dependent nodes, then backtracks to find the second-most-dependent nodes, followed by the third-most-dependent, and so on. so if we record the **post-order** of the traversal and then reverse it, it will give us the an order in which the least dependent vertices come first.
+the not-so-obvious answer is the use of *depth first search.* what makes dfs' applicable is that, when traversing a dage, it greedily traverses the graph to first finds and visits the most-dependent nodes, then backtracks to visit the second-most-dependent nodes, followed by visiting the third-most-dependent nodes, and so on. so if we record the **post-order** of the traversal and then reverse it, it will yield an order in which the least dependent vertices come first.
 
 # the recursive impl
 
