@@ -79,13 +79,11 @@ public class TopologicalSortShould {
     var actual =
       topologicalSort.topologicalSort(graph);
 
-    for (var entry : graph.entrySet()) {
-      for (var v : entry.getValue()) {
+    for (var entry : graph.entrySet())
+      for (var v : entry.getValue())
         assertThat(
           actual.indexOf(entry.getKey()),
           is(lessThan(actual.indexOf(v))));
-      }
-    }
   }
 
 }
