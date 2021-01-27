@@ -52,7 +52,7 @@ which is the ordering which greedily picks the smallest vertex required to satis
 
 you can easily verify that in comparing to the provided ordering, each left value occurs in the ordering at a lower index than each of the right values.
 
-using interpretation, we can implement a test case to program against:
+using this interpretation, we can implement a test case to program against:
 
 ```java
 public class TopologicalSortShould {
