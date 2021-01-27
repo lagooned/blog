@@ -65,16 +65,14 @@ public class TopologicalSortShould {
 
     Map<Integer, List<Integer>> graph =
       Map.of(
-        0, List.of(1, 2),
-        1, List.of(3, 2, 4),
         2, List.of(),
-        3, List.of(5),
-        4, List.of(),
-        5, List.of(8, 6, 7),
-        6, List.of(),
-        7, List.of(8),
+        3, List.of(8, 10),
+        5, List.of(11),
+        7, List.of(8, 11),
         8, List.of(9),
-        9, List.of());
+        9, List.of()
+        10, List.of()
+        11, List.of(9, 10);
 
     var actual =
       topologicalSort.topologicalSort(graph);
