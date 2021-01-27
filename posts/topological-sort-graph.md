@@ -96,4 +96,6 @@ the best way to think about this is to interpret the graph as a group of tasks a
 
 the not-so-obvious answer is the use of *depth first search.* dfs' core concept when employed in a dag is that it greedily traverses the graph to first find the most-dependent nodes, then backtracks to find the second-most-dependent nodes, followed by the third-most-dependent, and so on. so if we record the **post-order** of the traversal and then reverse it, it will give us the an order in which the least dependent vertices come first.
 
+# the recursive impl
+
 ...
