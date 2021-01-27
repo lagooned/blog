@@ -40,19 +40,19 @@ there exist multiple orderings which satisfy a topological sort, one such being:
 which is the ordering which greedily picks the smallest vertex required to satisfy the sorting property. it is easy to see what this means when you arrange the graph as an adjacency list:
 
 ```
-2 -> null
-3 -> 8 10
-5 -> 11
-7 -> 8 11
-8 -> 9
-9 -> null
-10 -> null
-11 -> 9 10
+2 -> []
+3 -> [8 10]
+5 -> [11]
+7 -> [8 11]
+8 -> [9]
+9 -> []
+10 -> []
+11 -> [9 10]
 ```
 
 you can easily verify that in comparing to the provided ordering, each left value occurs in the ordering at a lower index than each of the right values.
 
-using this requirement, we can implement a test case to program against:
+using interpretation, we can implement a test case to program against:
 
 ```java
 public class TopologicalSortShould {
