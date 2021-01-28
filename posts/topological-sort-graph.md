@@ -100,5 +100,40 @@ the not-so-obvious answer is the use of *depth first search.* what makes dfs' ap
 
 dfs has a timeless recursive implementation; and it is the easiest form of dfs to understand. the intuition goes like so, `for each vertex, visit a vertex by marking it and then visit all of the vertices adjacent to it until all vertex are visited`. [this site](https://www.cs.usfca.edu/~galles/visualization/DFS.html) contains a wonderful visualization for gaining intuition for both directed and undirected graphs, as well as adjacency list and matrix reprisentations; an invaluable resource.
 
+here is a java impl:
 
+```java
+private List<Integer> dfs(Map<Integer, List<Integer>> graph) {
+  var parent = new HashMap<Integer, Integer>();
+  var order = new ArrayList<Integer>();
+
+  // graph isn't necessarily connected
+  for (var entry : graph.entrySet()) {
+    var current = entry.getKey();
+    if (!parent.containsKey(current)) {
+      parent.put(current, null);
+      dfsVisit(graph, current, parent, order);
+    }
+  }
+
+  return order;
+}
+
+private void dfsVisit(
+  Map<Integer, List<Integer>> graph,
+  Integer current,
+  Map<Integer, Integer> parent,
+  List<Integer> order
+) {
+  var adj = graph.get(current);
+  for (var destination : adj) {
+    if (!parent.containsKey(destination)) {
+      parent.put(destination, current);
+      dfsVisit(graph, destination, parent, order);
+    }
+  }
+  // record dfs post order
+  order.add(current);
+}
+```
 
