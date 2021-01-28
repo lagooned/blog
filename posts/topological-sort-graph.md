@@ -98,7 +98,7 @@ the not-so-obvious answer is the use of *depth first search.* what makes dfs' ap
 
 # recursive impl
 
-dfs has a timeless recursive implementation; and it is the easiest form of dfs to understand. the intuition goes like so, `for each vertex, visit a vertex by marking it and then visit all of the vertices adjacent to it until all vertex are visited`. [this site](https://www.cs.usfca.edu/~galles/visualization/DFS.html) contains a wonderful visualization for gaining intuition for both directed and undirected graphs, as well as adjacency list and matrix reprisentations; an invaluable resource.
+dfs has a timeless recursive implementation; and it is the easiest form of dfs to understand. the intuition goes like so, `for each vertex, visit a vertex by marking it and then visit all of the vertices adjacent to it until all vertex are visited`. [this site](https://www.cs.usfca.edu/~galles/visualization/DFS.html) contains a wonderful visualization for gaining intuition for both directed and undirected graphs, as well as adjacency list and matrix reprisentations; an invaluable resource for the budget programmer.
 
 here is a java impl:
 
