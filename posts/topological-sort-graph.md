@@ -94,8 +94,11 @@ the best way to think about this is to interpret the graph as a group of tasks a
 
 *in what order can we execute all tasks such that no dependency conditions are violated?*
 
-the not-so-obvious answer is the use of *depth first search.* what makes dfs' applicable is that, when traversing a dag, it greedily traverses the graph to first finds and visits the most-dependent nodes, then backtracks to visit the second-most-dependent nodes, followed by visiting the third-most-dependent nodes, and so on. so if we record the **post-order** of the traversal and then reverse it, it will yield an order in which the least dependent vertices come first.
+the not-so-obvious answer is the use of *depth first search.* what makes dfs' applicable is that, when traversing a dag, it greedily traverses the graph to find and visit the first-most-dependent nodes, then backtracks to visit the second-most-dependent nodes, followed by visiting the third-most-dependent nodes, and so on. so if we record the **post-order** of the traversal and then reverse it, it will yield an order in which the least dependent vertices come first.
 
-# the recursive impl
+# recursive impl
 
-...
+dfs has a timeless recursive implementation; and it is the easiest form of dfs to understand. the intuition goes like so, `for each vertex, visit a vertex by marking it and then visit all of the vertices adjacent to it until all vertex are visited`. [this site](https://www.cs.usfca.edu/~galles/visualization/DFS.html) contains a wonderful visualization for gaining intuition for both directed and undirected graphs, as well as adjacency list and matrix reprisentations; an invaluable resource.
+
+
+
