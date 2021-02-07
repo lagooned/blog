@@ -1,6 +1,6 @@
 ---
 title: "topological sort of a directed acyclic graph"
-date: "2021-01-25"
+date: "2021-02-07"
 ---
 
 hey yall! my interview prep journey knows no bounds, and good thing because it's infinite content. [**depth-first search**](https://en.wikipedia.org/wiki/Depth-first_search) (commonly shortified as *dfs*) is a pervasive concept in computer science and offers good insight and introduction into the analysis of graphs. one particular application of depth-first search of a [**directed acyclic graph**](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (or *dag* for short) caught my interest, that being **topological sort**.
