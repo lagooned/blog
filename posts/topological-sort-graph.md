@@ -137,3 +137,24 @@ private void dfsVisit(
 }
 ```
 
+# tsort
+
+funny enough, this process is also encoded into the unix command `tsort`. running the following command will also give us a valid topological sort of a graph
+
+```bash
+tsort <<EOF | tr '\n' ' ' && echo
+3 8
+3 10
+5 11
+7 8
+7 11
+8 9
+11 9
+11 10
+EOF
+3 5 7 11 8 10 9
+```
+
+this is good to know to check our result and to increase our unix knowledge, you never know when this will come in handy.
+
+-jared
