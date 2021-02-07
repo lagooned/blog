@@ -47,7 +47,7 @@ which is the ordering which greedily picks the smallest vertex required to satis
 8 -> [9]
 9 -> []
 10 -> []
-11 -> [9 10]
+11 -> [2 9 10]
 ```
 
 you can easily verify that in comparing to the provided ordering, each left value occurs in the ordering at a lower index than each of the right values.
@@ -72,7 +72,7 @@ public class TopologicalSortShould {
         8, List.of(9),
         9, List.of()
         10, List.of()
-        11, List.of(9, 10));
+        11, List.of(2, 9, 10));
 
     var actual =
       topologicalSort.topologicalSort(graph);
@@ -149,10 +149,11 @@ tsort <<EOF | tr '\n' ' ' && echo
 7 8
 7 11
 8 9
+11 2
 11 9
 11 10
 EOF
-3 5 7 11 8 10 9
+3 5 7 11 8 10 2 9
 ```
 
 this is good to know to check our result and to increase our unix knowledge, you never know when this will come in handy.
