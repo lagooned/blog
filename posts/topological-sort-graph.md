@@ -103,7 +103,17 @@ dfs has a timeless recursive implementation; and it is the easiest form of dfs t
 here is a java impl:
 
 ```java
-private List<Integer> dfs(Map<Integer, List<Integer>> graph) {
+public List<Integer> topologicalSort(
+  Map<Integer, List<Integer>> graph
+) {
+  var list = dfs(graph);
+  Collections.reverse(list);
+  return list;
+}
+
+private List<Integer> dfs(
+  Map<Integer, List<Integer>> graph
+) {
   var parent = new HashMap<Integer, Integer>();
   var order = new ArrayList<Integer>();
 
