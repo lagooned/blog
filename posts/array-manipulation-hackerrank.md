@@ -156,16 +156,16 @@ object ArrayManipulation extends App {
 
   println(
     queries
-      .map(query => (-1 + query._1, -1 + query._2, query._3))
-      .map(adjusted => List.tabulate(n) { i =>
+      .map(q => (-1 + q._1, -1 + q._2, a._3))
+      .map(zeroIndexedQ => List.tabulate(n) { i =>
         i match {
-          case adjusted._1 => adjusted._3
-          case adjusted._2 => -(adjusted._3)
+          case zeroIndexedQ._1 => zeroIndexedQ._3
+          case zeroIndexedQ._2 => -(zeroIndexedQ._3)
           case _ => 0
         }
       })
-      .fold(List.tabulate(n)(i => 0)) { (current, accumulator) =>
-        current.zip(accumulator).map(zipped => zipped._1 + zipped._2)
+      .fold(List.tabulate(n)(i => 0)) { (acc, e) =>
+        acc.zip(e).map(zipped => zipped._1 + zipped._2)
       }
       .scan(0)(_ + _)
       .max)
