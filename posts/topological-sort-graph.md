@@ -139,7 +139,7 @@ private void dfsVisit(
 
 # tsort
 
-funny enough, this process is also encoded into the unix command `tsort`. running the following command will also give us a valid topological sort of a graph
+funny enough, this process is also encoded into the unix command `tsort`. running the following command will also give us a valid topological sort of a graph, given its adjacency list:
 
 ```bash
 tsort <<EOF | tr '\n' ' ' && echo
