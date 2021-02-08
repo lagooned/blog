@@ -96,9 +96,7 @@ the best way to think about this is to interpret the graph as a group of tasks a
 
 the not-so-obvious answer is the use of *depth first search.* dfs' applicability is in that its **post-order traversal** greedily finds all the nodes which have no outgoing edges, then backtracks to find all of the nodes which pointed to those, and then once again to find all the nodes which pointed to those, until finally arriving at the dfs starting node. 
 
-we can interpret these nodes which have no outgoing edges as the tasks which need to be done first, the nodes which point to those as the tasks that need to be done second, the ones which point to those are done third, and so on back to the starting task. do this process for every node whilst only visiting each node once and you have found an ordering which shows the least dependent tasks first.
-
-assuming that we do this for every node, concatinating the results of the dfs post order from all nodes, while observing non-repeat visits, this yields an order which satisfies the the reverse topological sort property.
+we can interpret these nodes which have no outgoing edges as the tasks which need to be done first, the nodes which point to those as the tasks that need to be done second, the ones which point to those are done third, and so on back to the starting task. do this process for every node whilst only visiting each node once and you have found an ordering which shows the least dependent tasks first. reverse this and you have found an ordering which satifies the topological sort property.
 
 # recursive impl
 
