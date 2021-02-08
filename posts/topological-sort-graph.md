@@ -92,9 +92,11 @@ public class TopologicalSortShould {
 
 the best way to think about this is to interpret the graph as a group of tasks and the net of dependencies between. then the question becomes,
 
-*in what order can we execute all tasks such that no dependency conditions are violated?*
+*for a given task, what are the tasks which need to be done before it?*
 
-the not-so-obvious answer is the use of *depth first search.* what makes dfs' applicable is that, when traversing a dag, it greedily traverses the graph to find and visit the first-most-dependent nodes, then backtracks to visit the second-most-dependent nodes, followed by visiting the third-most-dependent nodes, and so on. so if we record the **post-order** of the traversal and then reverse it, it will yield an order in which the least dependent vertices come first.
+the not-so-obvious answer is the use of *depth first search.* dfs' applicability is in that its **post-order traversal** greedily finds all the nodes which have no outgoing edges, then backtracks to find all of the nodes which pointed to those, and then once again to find all the nodes which pointed to those, until finally arriving at the starting node.
+
+we can interpret these nodes which have no outgoing edges as the tasks which need to be done first, the nodes which point to those as the tasks that need to be done second, the ones which point to those are done third, and so on back to the starting task. do this process for every node whilst only visiting each node once and you have found an ordering which, when reversed, shows the least dependent tasks last.
 
 # recursive impl
 
