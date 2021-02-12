@@ -27,9 +27,15 @@ lets define some terms:
 
 # the subproblem
 
-in soduku, the idenity of the subproblem is somewhat intuitive. if we just so happen to choose the right number for each square the first time, then we've solved the puzzle and we get to go home. however, this is not so simple and we have to recategorize this guess as an **assumption** and subsequent action based on it: `is it valid to put a particular number in a given square? if so then put it there and keep going until it's not valid, if not try another possibility`.
+in soduku, the identity of the subproblem is somewhat intuitive: `can we put a given number in a particualar square?`
 
 we easily can write a subroutine that answers the question, given the current state of the board; its java implementation is as follows:
 
 ```java
 ```
+
+# the backtracking & recursion
+
+if we just so happen to choose the right number for each square the first time, then we've solved the puzzle and we get to go home. however, ultimately this is not so simple and we must reformulate this in the realm of reality; any guess we make is an **assumption** and subsequent action based on it could be incorrect. this is where backtracking will eventually come in:
+
+`is it valid to put a particular number in a given square? if so then put it there and keep going until it's not valid, if not try another possibility`.
