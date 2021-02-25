@@ -14,7 +14,7 @@ creating this grid constitutes a solved soduku and a job well done. these puzzle
 lets define some terms:
 
 - *grid*
-  - the 9x9 grid of numbers, easily enought
+  - the 9x9 grid of numbers, easily enough
 - *clue*
   - one of the 17 or more initial values given for a unique grid, less for a mapping to multiple solutions
 - *recursion*
