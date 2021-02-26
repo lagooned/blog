@@ -1,6 +1,6 @@
 ---
-title: "make haskell less intimidating with emacs + lsp"
-date: "2021-01-23"
+title: "make haskell less intimidating with emacs & lsp"
+date: "2021-02-25"
 ---
 
 as i said before, there would be many posts about emacs and this is no exception. in this iteration, we are looking at haskell language server protocol integration. as i am currently, and always will be, learning haskell extremely slowly, i figured it necessary to leverage my experience with emacs, lsp, and gnu/linux to reap the benefits of the haskell community's ide integration efforts.
@@ -27,7 +27,7 @@ as i said before, there would be many posts about emacs and this is no exception
 
 # scope
 
-as was said in my previous [scala-lsp post](/posts/emacs-scala-env), in order to keep this short, i will only be going over the setup of *use-package*, *lsp-mode*, and the operating system configurations required to make a elegant development environment. if you would like to know more about emacs, please check out the following:
+as was said in my previous [scala-lsp post](/blog/posts/emacs-scala-env), in order to keep this short, i will only be going over the setup of *use-package*, *lsp-mode*, and the operating system configurations required to make a elegant development environment. if you would like to know more about emacs, please check out the following:
 
 - **[je/emacs](http://github.com/lagooned/emacs)**
   - the configuration that i currently use. it is heavily inspired by *[spacemacs](https://www.spacemacs.org)* and *[doom-emacs](https://github.com/hlissner/doom-emacs)*. please feel free to copy stuff out of my config or raise a pr, id be happy to have a look at it.
@@ -44,34 +44,11 @@ as was said in my previous [scala-lsp post](/posts/emacs-scala-env), in order to
 - [stack](https://docs.haskellstack.org/en/stable/README/#the-haskell-tool-stack)
 - [haskell-language-server](https://github.com/haskell/haskell-language-server)
 
-# use-package: how?
+# use-package: what do?
 
-i previously went over the syntax for *use-package* in the [this post](/posts/emacs-scala-env), please use it as a starting point if you are unaware of the syntax.
+i previously went over the syntax for **use-package** **[here](/blog/posts/emacs-scala-env#using-use-package)**, as well as the initial **package.el** setup **[here](/blog/posts/emacs-scala-env#setting-up-package-el)**. perform both of these on your local machine to continue.
 
 # setting up lsp
-
-now that we know a little about how to *use-package* we can start by installing it programatically by doing the following in out ~/.emacs.d/init.el:
-
-```elisp
-(require 'package)
-
-(setq
- package-archives
- '(("gnu" . "https://elpa.gnu.org/packages/")
-   ("melpa-stable" . "https://stable.melpa.org/packages/")
-   ("melpa" . "https://melpa.org/packages/")))
-
-(when (version< emacs-version "27")
-  (package-initialize))
-
-(if (not (package-installed-p 'use-package))
-      (progn (package-refresh-contents)
-             (package-install 'use-package)))
-```
-
-this will initialize the elisp module which controls package installation, and then install the latest version of use-package. to make it execute, run `(load-file "~/.emacs.d/init.el")` in the **\*scratch\*** buffer. this will start the installation process.
-
-then after that has been done, add the following use-package definitions:
 
 ```elisp
 (use-package company
@@ -99,8 +76,16 @@ then after that has been done, add the following use-package definitions:
   :hook ((haskell-mode . lsp) (haskell-literate-mode . lsp)))
 ```
 
+# create new stack project
+
+...
+
 # configuring hie.yaml
 
+...
+
 # conclusion
+
+...
 
 -jared

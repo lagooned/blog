@@ -53,7 +53,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 - [bloop](https://scalacenter.github.io/bloop/)
   - a compile server for scala that enables automatic importing of scala project changes, install it using [these instructions](https://scalameta.org/metals/docs/build-tools/bloop.html)
 
-# using use-package
+<h1 id="using-use-package">using use-package</h1>
 
 *use-package* is a huge convenience for adding emacs packages. the most common syntax for a use-package invocation is as follows:
 
@@ -73,7 +73,7 @@ in order to keep this short, i will only be going over the setup of *use-package
 
 here **package-name** is the package we are controlling with this definition; **:ensure** is a predicate (either being **t** or **nil**) which controls whether or not to download and install the package if it is not locally available; **:commands** takes a list of commands, which once invoked will trigger the loading of *package-name*; **:init** is a block of commands that will be evaluated sequentially immediately, before package load; and **:config** is a block of commands much like *:init*, however, these commands are evaluated when the package loads. there are some [other useful macros](https://github.com/jwiegley/use-package/blob/master/README.md), but these are the ones we will use.
 
-# setting up lsp
+<h1 id="setting-up-package-el">setting up package.el</h1>
 
 now that we know a little about how to *use-package* we can start by installing it programatically by doing the following in out ~/.emacs.d/init.el:
 
@@ -83,7 +83,6 @@ now that we know a little about how to *use-package* we can start by installing 
 (setq
  package-archives
  '(("gnu" . "https://elpa.gnu.org/packages/")
-   ("marmalade" . "https://marmalade-repo.org/packages/")
    ("melpa-stable" . "https://stable.melpa.org/packages/")
    ("melpa" . "https://melpa.org/packages/")))
 
@@ -97,7 +96,9 @@ now that we know a little about how to *use-package* we can start by installing 
 
 this will initialize the elisp module which controls package installation, and then install the latest version of use-package. to make it execute, run `(load-file "~/.emacs.d/init.el")` in the **\*scratch\*** buffer. this will start the installation process.
 
-then after that has been done, add the following use-package definitions:
+# setting up lsp
+
+after you have setup package.el, add the following use-package definitions:
 
 ```elisp
 (use-package company
