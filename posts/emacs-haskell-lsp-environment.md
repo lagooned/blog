@@ -42,7 +42,9 @@ as was said in my previous [scala-lsp post](/blog/posts/emacs-scala-env), in ord
 # install binaries
 
 - [stack](https://docs.haskellstack.org/en/stable/README/#the-haskell-tool-stack)
+  - follow the guide for this and make sure stack is in your **user-wide ~/.profile $PATH** so that emacs can see it
 - [haskell-language-server](https://github.com/haskell/haskell-language-server)
+  - either build from source or download the pre-compiled binaries; again make sure stack is in your **user-wide ~/.profile $PATH** so that emacs can see it 
 
 # use-package: what do?
 
@@ -64,16 +66,21 @@ i previously went over the syntax for **use-package** **[here](/blog/posts/emacs
 (use-package haskell-mode
   :ensure t
   :hook (haskell-mode . haskell-doc-mode)
+  :commands haskell-mode
   :init
-  (add-hook ;; prevent eldoc from hijacking minibuffer
+  (add-hook
+   ;; prevent eldoc minibuffer hijacking
    'haskell-mode-hook
-   (lambda () (eldoc-mode 0)))
-  :commands haskell-mode)
+   (lambda () (eldoc-mode 0))))
 
 (use-package lsp-haskell
-  :when (and (executable-find "stack")
-             (executable-find "haskell-language-server-wrapper"))
-  :hook ((haskell-mode . lsp) (haskell-literate-mode . lsp)))
+  :when
+  (and (executable-find "stack")
+       (executable-find
+        "haskell-language-server-wrapper"))
+  :hook
+  ((haskell-mode . lsp)
+   (haskell-literate-mode . lsp)))
 ```
 
 # create new stack project
