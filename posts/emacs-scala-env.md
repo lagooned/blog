@@ -111,10 +111,6 @@ after you have setup package.el, add the following use-package definitions:
   :ensure t
   :commands lsp)
 
-(use-package company-lsp
-  :ensure t
-  :after lsp company)
-
 (use-package scala-mode
   :ensure t
   :interpreter ("scala" . scala-mode))
