@@ -52,6 +52,8 @@ i previously went over the syntax for **use-package** **[here](/blog/posts/emacs
 
 # setting up lsp
 
+with your init.el setup to handle packages, you can now add the following in order to finish the emacs portion of the setup
+
 ```elisp
 (use-package company
   :ensure t
