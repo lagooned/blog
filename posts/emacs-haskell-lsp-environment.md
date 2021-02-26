@@ -42,9 +42,9 @@ as was said in my previous [scala-lsp post](/blog/posts/emacs-scala-env), in ord
 # install binaries
 
 - [stack](https://docs.haskellstack.org/en/stable/README/#the-haskell-tool-stack)
-  - follow the guide for this and make sure stack is in your **user-wide ~/.profile $PATH** so that emacs can see it
+  - follow the guide for this and make sure stack is in your **user-wide ~/.profile $PATH** (see the guide [here](https://stackabuse.com/how-to-permanently-set-path-in-linux/#usingaprofilefiletosetyourpath) for help) so that emacs can see it
 - [haskell-language-server](https://github.com/haskell/haskell-language-server)
-  - either build from source or download the pre-compiled binaries; again make sure stack is in your **user-wide ~/.profile $PATH** so that emacs can see it 
+  - either build from source or download the pre-compiled binaries; again making sure it is in your **user-wide ~/.profile $PATH** 
 
 # use-package: what do?
 
