@@ -8,10 +8,10 @@ as i said before, there would be many posts about emacs and this is no exception
 # terms
 
 - **[lsp](https://github.com/microsoft/language-server-protocol)**
-  - short for *language server protocol*. this is a standard for implementing a language server for a given language. it defines how to create a REST server which understands its implementing language (whether it be haskell, java, c++, scala, or what have you) and accepts queries which return information which can aid in the development process.
+  - short for *language server protocol*. this is a standard for implementing a language server for a given language. it defines how to create a rest server which understands its implementing language (whether it be haskell, java, c++, scala, or what have you) and accepts queries which return information which can aid in the development process.
 
 - **[haskell](https://www.haskell.org)**
-  - named after logicial Haskell Curry, Haskell is a general-purpose, statically-typed, & purely-functional programming language which touts most of the recent innovations in programming and is a consistent source of good ideas for other languages to copy from.
+  - named after logicial haskell curry, haskell is a general-purpose, statically-typed, & purely-functional programming language which touts most of the recent innovations in programming and is a consistent source of good ideas for other languages to copy from.
 
 - **[mode](https://www.gnu.org/software/emacs/manual/html_node/emacs/Modes.html)**
   - an operating mode for emacs which is enabled upon opening a buffer. a mode usually offers a set of functionality that is useful for the type of buffer that was opened. for example, when opening a *\*.hs* file, **haskell-mode** is started.
