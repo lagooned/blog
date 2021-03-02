@@ -1,6 +1,6 @@
 ---
 title: "make haskell less intimidating with emacs & lsp"
-date: "2021-02-25"
+date: "2021-03-02"
 ---
 
 as i said before, there would be many posts about emacs and this is no exception. in this iteration, we are looking at haskell language server protocol integration. as i am currently, and always will be, learning haskell extremely slowly, i figured it necessary to leverage my experience with emacs, lsp, and gnu/linux to reap the benefits of the haskell community's ide integration efforts.
