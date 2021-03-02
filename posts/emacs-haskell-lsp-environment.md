@@ -85,16 +85,33 @@ with your init.el setup to handle packages, you can now add the following in ord
    (haskell-literate-mode . lsp)))
 ```
 
-# create new stack project
+# create & configure new stack project
 
-...
+to create a new project that is compatible with this setup, we can use stack:
 
-# configuring hie.yaml
+`$ stack new hello-hs new-template`
 
-...
+this will create a new directory in $PWD containing a stack project that you can fill with haskell goodness. next step is to set the stack ghc resolver to the latest version that is compatible with the version of **haskell-language-server** that was previously installed. at the time of writing this, the latest version of the language server i could install was *8.10.3*, so i specified this in my **./stack.yaml** inside the newly created project:
 
-# conclusion
+```yaml
+packages:
+- .
+resolver: ghc-8.10.3
+```
 
-...
+once you've done this, you should be able to run `stack build` to automatically install an isolated ghc of the required version. it may seem like we are completely done, but there is one more step, configuring **./hie.yaml**. due to this being just a basic guide, and also that i don't know that much about it than you do, i will only supply a basic hie.yaml, as follows:
+
+```yaml
+cradle:
+  stack:
+    - path: "./app"
+      component: "hello-hs"
+    - path: "./src"
+      component: "hello-hs:lib"
+    - path: "./test"
+      component: "hello-hs:test:hello-hs-test"
+```
+
+this file advises the language server of the project structure so that it can provide features like go-to-definition, refactoring, and linting. i believe that this step will be added to the language server itself at some point as well so it might not be worth covering it in much detail. after creating this file, you should be able to load up Main.hs/Lib.hs/Spec.hs and start programming modern haskell. i hope this setup starts breaking down the haskell confusion barrier for you so that you can learn what this eye-opening language has to offer, as opposed to just listening about others talk about it.
 
 -jared
