@@ -24,11 +24,13 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <img
-              src="/blog/images/me-centered-better.png"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
+            <a href="/jaredengler">
+              <img
+                src="/blog/images/me-centered-better.png"
+                className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+                alt={name}
+              />
+            </a>
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
