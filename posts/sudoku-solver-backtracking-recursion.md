@@ -1,6 +1,6 @@
 ---
 title: "recursion & backtracking: sudoku solver"
-date: "2021-01-13"
+date: "2021-04-03"
 ---
 
 hey y'all. i was recently looking up more problems to increase my computer science knowledge and came across a very interesting one: *brute forcing sudoku using recursion and backtracking*. learning how to do this has always been a goal of mine, yet the solution never quite came to me so i was forced to research it. luckily there are quite a lot of resources online which can help you build intuition on how this solution works; i hope this article can become one of them.
