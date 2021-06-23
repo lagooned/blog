@@ -3,13 +3,13 @@ title: "topological sort of a directed acyclic graph"
 date: "2021-02-07"
 ---
 
-hey yall! my interview prep journey knows no bounds, and good thing because it's infinite content. [**depth-first search**](https://en.wikipedia.org/wiki/Depth-first_search) (commonly shortified as *dfs*) is a wide-spread concept in computer science and offers good insight and introduction into the analysis of graphs. one particular application of depth-first search of a [**directed acyclic graph**](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (or *dag* for short) caught my interest, that being **topological sort**.
+hey yall! my interview prep journey knows no bounds, and good thing because it's infinite content. [**depth-first search**](https://en.wikipedia.org/wiki/Depth-first_search) is a wide-spread concept in computer science and offers good insight and introduction into the analysis of graphs. one particular application of depth-first search of a [**directed acyclic graph**](https://en.wikipedia.org/wiki/Directed_acyclic_graph) caught my interest, that being **topological sort**.
 
 # topsort
 
 the topological sort of a dag is an ordering of all its vertex labels which satisfies the following statement:
 
-`for all vertex v in any dag, there exists an ordering in which v occurs *after* the set of vertices that v directs to`
+> given a valid dag, for all vertices *v* and all *vx* in set of vertices that v points to *vs*, there exists at least one ordering in which v occurs before every vx for each vs
 
 so in the following graph:
 
@@ -33,11 +33,9 @@ so in the following graph:
 <g id="edge4" class="edge"><path fill="none" stroke="#FFFFFF" d="M101.0187,-143.8314C101.8743,-136.131 102.8917,-126.9743 103.8426,-118.4166"/><polygon fill="#FFFFFF" stroke="#FFFFFF" points="107.3283,-118.7386 104.9541,-108.4133 100.3711,-117.9656 107.3283,-118.7386"/></g>
 <g id="edge5" class="edge"><path fill="none" stroke="#FFFFFF" d="M85.113,-146.3771C76.4747,-136.659 65.2107,-123.987 55.5503,-113.1191"/><polygon fill="#FFFFFF" stroke="#FFFFFF" points="58.1196,-110.7413 48.8599,-105.5924 52.8877,-115.3918 58.1196,-110.7413"/></g>
 
-there exist multiple orderings which satisfy a topological sort, one such being:
-
 `[3, 5, 7, 8, 11, 2, 9, 10]`
 
-which is the ordering which greedily picks the smallest vertex required to satisfy the sorting property. it is easy to see what this means when you arrange the graph as an adjacency list:
+is one such ordering. it is much easier to see when the graph is arranged as an adjacency list:
 
 ```
 2 -> []
@@ -78,10 +76,12 @@ public class TopologicalSortShould {
       topologicalSort.topologicalSort(graph);
 
     for (var entry : graph.entrySet())
-      for (var v : entry.getValue())
+      var v = entry.getKey();
+      var vs = entry.getValue();
+      for (var vx : vs)
         assertThat(
-          actual.indexOf(entry.getKey()),
-          is(lessThan(actual.indexOf(v))));
+          actual.indexOf(v),
+          is(lessThan(actual.indexOf(vx))));
 
   }
 
@@ -92,7 +92,7 @@ public class TopologicalSortShould {
 
 the best way to think about this is to interpret the graph as a group of tasks and the net of dependencies between. then the question becomes,
 
-*for a given task, what are the tasks which need to be done before it?*
+> *for a given task, what are the tasks which need to be done before it?*
 
 the not-so-obvious answer is the use of *depth first search.* dfs' applicability is in that its **post-order traversal** greedily finds all the nodes which have no outgoing edges, then backtracks to find all of the nodes which pointed to those, and then once again to find all the nodes which pointed to those, until finally arriving at the dfs starting node. 
 
